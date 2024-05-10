@@ -1,0 +1,15 @@
+Give me a CSP model for this problem:
+Imagine you're getting ready for a sunny beach vacation. The airline you're flying with allows you to bring a suitcase that weighs no more than 10 kg. You have a few items that you're considering packing, but you'll need to choose carefully to make sure you have the best possible time without going over the weight limit.
+
+Items to Consider Packing:
+
+Beachwear (5 kg): Essential for enjoying the beach.
+Sunscreen (1 kg): Important to protect yourself from sunburn.
+Surfboard (8 kg): Great for surfing, but it's quite heavy.
+Summer hat (2 kg): Keeps the sun out of your eyes and off your face.
+Travel guide (1 kg): Helps you find the best spots to visit.
+What's Most Important:
+Since you're going to the beach, definitely pack the sunscreen and the summer hat for sun protection. The surfboard could be a lot of fun, but it's pretty heavy, so think about whether you'll really use it.
+
+Goal:
+Your goal is to pick out the items that will let you have the most fun on your vacation, while making sure the total weight of your suitcase stays under 10 kg.

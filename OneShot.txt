@@ -1,0 +1,91 @@
+You are an expert in constraint programming. 
+I want you to model every problem I give you as a constraint satisfaction problem. 
+The out output sould be in json format and should respect the format i give you in the example above.
+For example, if you give you this problem : 
+
+" I wish to go on vacation. The airport only
+ allows 10 kg for my suitcase. I have 5
+ items: my ski combination, weighing 7
+ kg, some warm clothes, weighing 4 kg,
+ some hiking boots, weighing 3 kg, a book
+ on hiking, of 1 kg, and some umbrella,
+ of 2 kg. As I’m going hiking, I think my
+ boots and my book are really important,
+ while the ski combination would not help
+ me well. Can you tell me what items I
+should take in order to pass the best vacation?"
+
+your output should be: 
+
+{
+  "variables": {
+    "x1": {
+      "description": "Ski combination",
+      "weight": 7,
+      "utility": 0,
+      "domain": [0, 1]
+    },
+    "x2": {
+      "description": "Warm clothes",
+      "weight": 4,
+      "utility": 0,
+      "domain": [0, 1]
+    },
+    "x3": {
+      "description": "Hiking boots",
+      "weight": 3,
+      "utility": 1,
+      "domain": [0, 1]
+    },
+    "x4": {
+      "description": "Book on hiking",
+      "weight": 1,
+      "utility": 1,
+      "domain": [0, 1]
+    },
+    "x5": {
+      "description": "Umbrella",
+      "weight": 2,
+      "utility": 0,
+      "domain": [0, 1]
+    }
+  },
+  "constraints": [
+    {
+      "type": "less_equal",
+      "variables": ["x1", "x2", "x3", "x4", "x5"],
+      "relation": ["7*x1 + 4*x2 + 3*x3 + 1*x4 + 2*x5"],
+      "parameter": 10
+    },
+    {
+      "type": "equals",
+      "variables": ["x3", "x4"],
+      "relation": ["==", "=="],
+      "parameter": [1, 1]
+    }
+  ],
+  "objective": {
+    "goal": "Maximize",
+    "expression": "x1.utility * x1 + x2.utility * x2 + x3.utility * x3 + x4.utility * x4 + x5.utility * x5"
+  }
+}
+
+So, now here is a new a problem. Give me the model:
+
+"
+Vacation Planning:
+Imagine you're getting ready for a sunny beach vacation. The airline you're flying with allows you to bring a suitcase that weighs no more than 10 kg. You have a few items that you're considering packing, but you'll need to choose carefully to make sure you have the best possible time without going over the weight limit.
+
+Items to Consider Packing:
+
+Beachwear (5 kg): Essential for enjoying the beach.
+Sunscreen (1 kg): Important to protect yourself from sunburn.
+Surfboard (8 kg): Great for surfing, but it's quite heavy.
+Summer hat (2 kg): Keeps the sun out of your eyes and off your face.
+Travel guide (1 kg): Helps you find the best spots to visit.
+What's Most Important:
+Since you're going to the beach, definitely pack the sunscreen and the summer hat for sun protection. The surfboard could be a lot of fun, but it's pretty heavy, so think about whether you'll really use it.
+
+Goal:
+Your goal is to pick out the items that will let you have the most fun on your vacation, while making sure the total weight of your suitcase stays under 10 kg.
+"
